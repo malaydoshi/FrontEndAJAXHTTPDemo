@@ -1,4 +1,6 @@
 ﻿using FrontEndAJAXHTTPDemo.Models;
+using FrontEndAJAXHTTPDemo.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,8 @@ using System.Linq;
 
 namespace FrontEndAJAXHTTPDemo.Controllers
 {
+    [APIKeyAuth]
+    [EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase
@@ -18,13 +22,13 @@ namespace FrontEndAJAXHTTPDemo.Controllers
                 SID = 1,
                 SName = "Student 1",
                 DTDOB = DateTime.Now,
-                ARKnownLanguages = new[] { "Lang 1", "Lang 2" }
+                //ARKnownLanguages = new[] { "Lang 1", "Lang 2" }
             },
             new Student {
                 SID = 2,
                 SName = "Student 2",
                 DTDOB = DateTime.Now,
-                ARKnownLanguages = new[] { "Lang 3", "Lang 4" }
+                //ARKnownLanguages = new[] { "Lang 3", "Lang 4" }
             }
         };
         // GET: api/<StudentsController>
